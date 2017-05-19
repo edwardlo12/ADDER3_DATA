@@ -23,18 +23,25 @@ int PATTERN=1;  //列出輸入資料
 int pattern_number = 10 ;
 double period = 3.0 ; //ns
 // input patterns
-int A0[max] ;
-int A1[max] ;
-int A2[max] = {1,1,0,1,1} ;
-int B0[max] = {1,0,0,0,1} ;
-int B1[max] = {1,0,0,1,1} ;
-int B2[max] = {1,1,0,1,1} ;
-int CIN[max]= {1,0,1,1,1} ;
+/*int A0[max*(max-1)] ;
+int A1[max*(max-1)] ;
+int A2[max*(max-1)] ;
+int B0[max*(max-1)] ;
+int B1[max*(max-1)] ;
+int B2[max*(max-1)] ;
+int CIN[max*(max-1)];*/
+int A0[max*(max-1)] = {1,1,1,0,1} ;
+int A1[max*(max-1)] = {1,1,1,1,1} ;
+int A2[max*(max-1)] = {1,1,0,1,1} ;
+int B0[max*(max-1)] = {1,0,0,0,1} ;
+int B1[max*(max-1)] = {1,0,0,1,1} ;
+int B2[max*(max-1)] = {1,1,0,1,1} ;
+int CIN[max*(max-1)]= {1,0,1,1,1} ;
 // golden output patterns
-int AS0[max] = {1,1,0,1,1} ;
-int AS1[max] = {1,1,0,0,1} ;
-int AS2[max] = {1,0,1,1,1} ;
-int ACOUT[max]={0,1,0,1,1} ;
+int AS0[max*(max-1)] = {1,1,0,1,1} ;
+int AS1[max*(max-1)] = {1,1,0,0,1} ;
+int AS2[max*(max-1)] = {1,0,1,1,1} ;
+int ACOUT[max*(max-1)]={0,1,0,1,1} ;
 // Set to 1 if you want to patch pex result file
 int patch_pex_file = 1 ; // Yes:1 No:0
 //=======================================================
