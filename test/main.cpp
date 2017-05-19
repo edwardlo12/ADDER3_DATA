@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 struct DATA{
     int f[7];
     int b[7];
@@ -51,10 +52,10 @@ int main(int argc, const char * argv[]) {
                 
             }
             if(flag)
-                std::cout<<f_a2<<f_a1<<f_a0<<f_b2<<f_b1<<f_b0<<f_cin<<"\t\t\t TO "<<b_a2<<b_a1<<b_a0<<b_b2<<b_b1<<b_b0<<b_cin<<"\t\t\t"<<++count<<std::endl;
+                std::cout<<f_a2<<f_a1<<f_a0<<f_b2<<f_b1<<f_b0<<f_cin<<"\t\t TO "<<b_a2<<b_a1<<b_a0<<b_b2<<b_b1<<b_b0<<b_cin<<"\t\t"<<++count<<std::endl;
                 //A2A1A0B2B1B0CIN TO A2A1A0B2B1B0CIN 第N筆資料
             }
-    for(int i=0;i<128;i++){
+    /*for(int i=0;i<128;i++){
         std::cout<<i<<"\t";
         for(int j=0;j<128;j++){
             for(int k=0;k<7;k++)
@@ -65,7 +66,7 @@ int main(int argc, const char * argv[]) {
             std::cout<<"\t";
         }
         std::cout<<std::endl;
-    }
+    }*/
     
         
     
