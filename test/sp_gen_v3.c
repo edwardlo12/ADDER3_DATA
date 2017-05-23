@@ -9,7 +9,7 @@
 
 // ============ Please edit the input vector ============
 // the number of patterns
-int pattern_number = 128 ;
+int pattern_number = max*(max-1) ;
 double period = 3.0 ; //ns
 // input patterns
 int A0[max*(max-1)] = {1,1,1,0,1} ;
@@ -34,10 +34,10 @@ int count=0;
 
 void pattern_init(){
     int input=0;
-    for(int i=0;i<pattern_number;i++)
+    for(int i=0;i<max;i++)
         flag[i][i]=1;
     
-    for(int i=0;i<(pattern_number*(pattern_number-1));i++){
+    for(int i=0;i<pattern_number;i++){
         //init input function with input
         A0[i] = (input>>6)%2;
         A1[i] = (input>>5)%2;
@@ -46,9 +46,10 @@ void pattern_init(){
         B1[i] = (input>>2)%2;
         B2[i] = (input>>1)%2;
         CIN[i]= (input)%2;
+        printf("line%5d:%d%d%d%d%d%d%d\n",i+1,A0[i],A1[i],A2[i],B0[i],B1[i],B2[i],CIN[i]);
         //std::cout<<"line"<<std::setw(2)<<i+1<<": "<<A0[i]<<A1[i]<<A2[i]<<B0[i]<<B1[i]<<B2[i]<<CIN[i]<<std::endl;
         //==============================
-        for(int j=pattern_number-1;j>=0;j--){
+        for(int j=max-1;j>=0;j--){
             if(flag[input][j]==0){
                 flag[input][j]=1;
                 data[input][j]=++count;

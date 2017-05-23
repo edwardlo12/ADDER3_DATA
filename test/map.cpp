@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <iomanip>
-#define max 10 //max^2矩陣
+#define max 16 //max^2矩陣
 
 int data[128][128];     //順序資料
 int flag[128][128]={0}; //旗標
@@ -20,7 +20,7 @@ int PATTERN=1;  //列出輸入資料
 
 // ============ Please edit the input vector ============
 // the number of patterns
-int pattern_number = 10 ;
+int pattern_number = max*(max-1) ;
 double period = 3.0 ; //ns
 // input patterns
 /*int A0[max*(max-1)] ;
@@ -51,10 +51,10 @@ int patch_pex_file = 1 ; // Yes:1 No:0
 int main()
 {
     int input=0;
-    for(int i=0;i<pattern_number;i++)
+    for(int i=0;i<max;i++)
         flag[i][i]=1;
     
-    for(int i=0;i<(pattern_number*(pattern_number-1));i++){
+    for(int i=0;i<pattern_number;i++){
         //init input function with input
         A0[i] = (input>>6)%2;
         A1[i] = (input>>5)%2;
@@ -65,7 +65,7 @@ int main()
         CIN[i]= (input)%2;
         //std::cout<<"line"<<std::setw(2)<<i+1<<": "<<A0[i]<<A1[i]<<A2[i]<<B0[i]<<B1[i]<<B2[i]<<CIN[i]<<std::endl;
         //==============================
-        for(int j=pattern_number-1;j>=0;j--){
+        for(int j=max-1;j>=0;j--){
             if(flag[input][j]==0){
                 flag[input][j]=1;
                 data[input][j]=++count;
@@ -76,8 +76,8 @@ int main()
     }
     if(FLAG){
         std::cout<<"FLAG:"<<std::endl;
-        for(int i=0;i<pattern_number;i++){
-            for(int j=0;j<pattern_number;j++){
+        for(int i=0;i<max;i++){
+            for(int j=0;j<max;j++){
                 if(flag[j][i]==0)
                     std::cout<<j<<" "<<i<<std::endl;
                 //std::cout<<std::setw(2)<<flag[j][i]<<" ";
@@ -88,14 +88,14 @@ int main()
     }
     if(DATA){
         std::cout<<"DATA:"<<std::endl;
-        for(int i=0;i<pattern_number;i++){
-            for(int j=0;j<pattern_number;j++)
-                std::cout<<std::setw(2)<<data[j][i]<<" ";
+        for(int i=0;i<max;i++){
+            for(int j=0;j<max;j++)
+                std::cout<<std::setw(3)<<data[j][i]<<" ";
             std::cout<<std::endl;
         }
     }
     if(PATTERN){
-        for(int i=0;i<(pattern_number*(pattern_number-1));i++){
+        for(int i=0;i<pattern_number;i++){
             std::cout<<"line"<<std::setw(2)<<i+1<<": "<<A0[i]<<A1[i]<<A2[i]<<B0[i]<<B1[i]<<B2[i]<<CIN[i]<<std::endl;
         }
     }
